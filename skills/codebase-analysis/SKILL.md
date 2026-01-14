@@ -1,6 +1,6 @@
 ---
-name: Codebase Analysis for README
-description: This skill should be used by the codebase-analyser agent to understand a project's structure, tech stack, value proposition, and the user's development patterns. Provides methodology for extracting README-relevant information from code and chat history.
+name: analyzing-codebases
+description: Extracts README-relevant information from code and user patterns. Used by codebase-analyser agent to identify project type, tech stack, value proposition, dependencies, code quality issues, and development patterns from chat history.
 ---
 
 # Codebase Analysis for README

@@ -1,6 +1,6 @@
 ---
-name: README Co-Author
-description: This skill should be used when the user mentions "README", "write docs", "document this project", "improve documentation", discusses pushing or committing where README might be relevant, or works on a new project without a README. Triggers on any README-related activity. Orchestrates codebase analysis, competitive research, and collaborative writing through parallel AI synthesis.
+name: coauthoring-readmes
+description: Orchestrates README creation through parallel AI analysis and collaborative writing. Use when the user mentions "README", "write docs", "document this project", "improve documentation", or works on a new project without a README. Spawns codebase-analyser and readme-researcher agents in parallel, synthesises findings, then co-authors sections with user feedback.
 ---
 
 # README Co-Author

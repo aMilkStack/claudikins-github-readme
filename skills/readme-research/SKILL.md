@@ -1,6 +1,6 @@
 ---
-name: README Research Methodology
-description: This skill should be used by the readme-researcher agent to find and evaluate exemplar READMEs from similar projects. Provides structured methodology for competitive research, scoring, and pattern extraction.
+name: researching-readmes
+description: Finds and evaluates exemplar READMEs from similar projects. Used by readme-researcher agent to conduct competitive research, score README quality, and extract patterns worth borrowing.
 ---
 
 # README Research Methodology
