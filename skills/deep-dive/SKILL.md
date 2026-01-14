@@ -1,9 +1,11 @@
 ---
-name: analyzing-codebases
-description: Codebase analysis methodology for README generation. Identifies project type, tech stack, dependencies, CI setup, and user context from chat history.
+name: deep-dive
+description: "Take a deep dive into the codebase. Identify what this project IS - type, stack, deps, architecture. Facts only."
 ---
 
-# Codebase Analysis
+# The Deep Dive
+
+"Let me take a deep dive into this codebase..."
 
 Identify what the project IS, not what it could be. Facts only.
 
@@ -220,3 +222,11 @@ Filter entries where `project` matches the current project path.
   - **High:** Extracted from config files
   - **Medium:** Inferred from patterns
   - **Low:** Guessed from structure
+
+## Handoff
+
+After presenting findings:
+
+- Ask: "Happy with the deep dive? Want to refine anything, or continue to consult the crystal-ball?"
+- If refine → address feedback, ask again
+- If continue → Use `crystal-ball`
