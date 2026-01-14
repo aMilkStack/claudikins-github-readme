@@ -1,6 +1,6 @@
 ---
 name: researching-readmes
-description: Competitive research methodology for README documentation. Use when conducting README research, finding exemplar documentation, scoring README quality, extracting patterns from top repositories, or analysing what makes documentation effective. Covers search strategies, scoring rubrics, pattern extraction, and Gemini integration for parallel research.
+description: Competitive research methodology for README documentation. Use when finding exemplar READMEs, scoring README quality, extracting patterns from top repositories, or recommending badges and sections based on project type. Covers search strategies, scoring rubrics, and pattern extraction.
 ---
 
 # README Research Methodology
@@ -9,33 +9,19 @@ Systematic approach to researching high-quality READMEs for pattern extraction.
 
 ## Research Process
 
-### Phase 1: Understand the Project
+### Phase 1: Define Search Criteria
 
-Receive project context from codebase analysis:
-- Project type (CLI, library, framework, etc.)
-- Tech stack
-- Target audience
-- Complexity level
-
-### Phase 2: Define Research Criteria
-
-Based on project context, define search parameters:
+Based on project context from codebase analysis, match on:
 
 | Criterion | How to Match |
 |-----------|--------------|
-| Category | Same project type (CLI, library, etc.) |
+| Category | Same project type (CLI, library, framework, API, etc.) |
 | Tech Stack | Same or similar languages/frameworks |
 | Ecosystem | Same package manager (npm, PyPI, Cargo) |
-| Complexity | Similar scope (simple util vs enterprise) |
-| Maturity | Established projects with proven docs |
+| Complexity | Similar scope (simple util vs enterprise tool) |
+| Maturity | Established projects with proven documentation |
 
-### Phase 3: Research Execution
-
-**Tools to use:**
-- **Context7** (if available): Up-to-date documentation
-- **WebSearch**: Find similar GitHub projects
-- **WebFetch**: Read and analyse READMEs
-- **Gemini deep-research** (if available): Comprehensive analysis
+### Phase 2: Search Execution
 
 **Search queries:**
 ```
@@ -44,32 +30,41 @@ Based on project context, define search parameters:
 "[similar-tool] alternatives github"
 ```
 
-**Find 10-15 candidates**, then narrow to top 5-7.
+**Find 10-15 candidates**, then narrow to top 5-7 based on stars and initial quality scan.
 
-### Phase 4: Scoring Rubric
+## Scoring Rubric
 
 Rate each README 1-10 on these dimensions:
 
-| Dimension | Weight | Criteria |
-|-----------|--------|----------|
-| Value Proposition | 20% | Clear problem/solution in first 30 seconds |
-| Time to Joy (TTJ) | 20% | Commands to first working result (target: ≤3) |
-| Visual Quality | 15% | GIFs, diagrams, screenshots, code blocks |
-| Structure | 15% | Logical flow, scannable, good TOC |
-| SEO Signals | 10% | Keywords in title, semantic headers |
-| Badge Quality | 10% | Informative, not cluttered (5-7 max) |
-| Maintenance Signals | 10% | Recent updates, active links |
+| Dimension | Weight | What to Look For |
+|-----------|--------|------------------|
+| Value Proposition | 20% | Problem and solution crystal clear in first paragraph |
+| Time to Joy (TTJ) | 20% | Commands to first working result (target: 2-3) |
+| Visual Quality | 15% | GIFs, diagrams, code blocks, dark mode support |
+| Structure | 15% | Logical flow, scannable, TOC if >200 lines |
+| SEO Signals | 10% | Keywords in title, semantic headers, topics tagged |
+| Badge Quality | 10% | Informative badges, 5-7 max, consistent style |
+| Maintenance Signals | 10% | Recent commits, active issues, working links |
 
-**Quantitative Metrics:**
+### Quantitative Targets
 
-| Metric | Target | Red Flag |
-|--------|--------|----------|
-| Flesch-Kincaid Grade | 8-10 | >12 |
-| TTJ (commands to result) | ≤3 | >5 |
+| Metric | Good | Red Flag |
+|--------|------|----------|
+| Flesch-Kincaid Grade | 8-10 | >12 (too complex) |
+| TTJ (commands to result) | 2-3 | >5 |
 | Visual Density | 1 per 300 words | >600 words without visual |
 | Badge Count | 5-7 | >10 or 0 |
 
-### Phase 5: Pattern Extraction
+### Score Interpretation
+
+| Score | Assessment |
+|-------|------------|
+| 9-10 | Exemplary - study closely |
+| 7-8 | High quality - good patterns |
+| 5-6 | Average - selective borrowing |
+| 3-4 | Below average - learn what not to do |
+
+## Pattern Extraction
 
 For each high-scoring exemplar, extract:
 
@@ -79,9 +74,9 @@ For each high-scoring exemplar, extract:
 - Badge selection and arrangement
 
 **Structure:**
-- Section order
-- Header naming conventions
+- Section order and naming conventions
 - Use of collapsible sections
+- Table of Contents style
 
 **Visuals:**
 - GIF usage (terminal recordings, UI demos)
@@ -93,24 +88,58 @@ For each high-scoring exemplar, extract:
 - Code example density
 - Explanation depth
 
-### Phase 6: Gemini Integration
+## Badge Recommendations
 
-**Parallel execution:**
-```
-Claude: WebSearch + WebFetch + Context7 analysis
-Gemini: deep_research(query="README exemplars for [project-type]")
-```
+### Badge Categories by Signal
 
-**Synthesis prompt for Gemini brainstorming:**
-```
-Compare Claude's findings with Gemini's deep research.
-Identify:
-1. Patterns both found (high confidence)
-2. Patterns only Claude found
-3. Patterns only Gemini found
-4. Conflicts to resolve
-5. Final recommended patterns
-```
+| Category | Signal | When to Use |
+|----------|--------|-------------|
+| Build Status | "Code compiles and tests pass" | Always |
+| Code Coverage | "Maintainers care about testing" | If coverage >60% |
+| Version | "This is a releasable product" | If published to registry |
+| Social Proof | "Crowd has vetted this" | Only if numbers impress (5000+ stars) |
+| License | "Legal to use in my project" | Always |
+| Activity | "Project is alive" | Only if actively maintained |
+
+### Badge Styles
+
+Pick ONE style across all badges:
+- `flat` - Modern, clean (most projects)
+- `flat-square` - Sharp edges (technical projects)
+- `for-the-badge` - Large, bold (hero sections only)
+
+### Recommended Badge Sets
+
+**Minimal (3-4):** Build Status, Version, License
+
+**Standard (5-6):** Build Status, Coverage, Version, Downloads, License
+
+**Comprehensive (7 max):** Build Status, Coverage, Quality, Version, Downloads, License, Last Commit
+
+### Badge Anti-Patterns to Avoid
+- **Overload:** 15+ badges creating visual chaos
+- **Inconsistent styling:** Mix of flat, plastic, for-the-badge
+- **Vanity badges:** "Made with JavaScript" adds no value
+- **Stale badges:** Coverage showing 0% from broken CI
+- **Meaningless numbers:** Badging 3 stars, 12 downloads
+
+## Section Recommendations
+
+Base recommendations on what top exemplars use:
+
+### Common Section Patterns
+
+| Section | When to Include |
+|---------|-----------------|
+| Quick Start | Always - first thing after hero |
+| Installation | Always - multiple methods if applicable |
+| Usage/Examples | Always - show, don't just tell |
+| API Reference | Libraries and frameworks |
+| Configuration | If configurable |
+| Architecture | Complex projects with multiple components |
+| Contributing | Open source projects seeking contributions |
+| FAQ | If common questions exist |
+| Troubleshooting | If known gotchas exist |
 
 ## Output Format
 
@@ -145,40 +174,23 @@ Identify:
 
 [Repeat for top 5-7]
 
-## Agreement (Both Claude + Gemini Found)
-- [pattern/insight with high confidence]
-
-## Claude's Unique Finds
-- [what Gemini missed]
-
-## Gemini's Unique Finds
-- [what Claude missed]
-
-## Final Recommendations
+## Recommended Patterns
 
 ### Sections for This Project
 1. [Section]: Used by X/Y exemplars because [reason]
 2. [Section]: [reason]
-...
-
-### Patterns to Use
-- [Pattern]: Seen in [repos], achieves [effect]
-- [Pattern]: ...
-
-### Anti-Patterns to Avoid
-- [Thing]: Common mistake, seen in lower-rated READMEs
-- [Thing]: ...
 
 ### Visual Recommendations
 - [Type of visual]: [where to use it]
-- [Type of visual]: ...
 
 ### Badge Recommendations
 - [Badge type]: [source, what it signals]
-- [Badge type]: ...
+
+### Anti-Patterns to Avoid
+- [Thing]: Common mistake seen in lower-rated READMEs
 ```
 
 ## Additional Resources
 
-See `references/badge-ecosystem.md` for badge types and signals.
-See `references/scoring-rubric.md` for detailed scoring criteria.
+See `references/badge-ecosystem.md` for complete badge sources and examples.
+See `references/scoring-rubric.md` for detailed scoring criteria and checklists.
