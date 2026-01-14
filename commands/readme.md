@@ -1,6 +1,6 @@
 ---
 name: readme
-description: Co-author a README through parallel AI analysis and collaborative writing
+description: Co-author a README through sequential AI analysis and collaborative writing
 allowed-tools: ["Task", "Read", "Write", "Edit", "Glob", "Grep", "AskUserQuestion"]
 ---
 
@@ -19,18 +19,31 @@ Guide the user through this workflow step by step.
 
 ## Phase 1: Understanding the Project
 
-**First, spawn both analysis agents in parallel:**
+**Step 1: Analyse the codebase FIRST**
 
-Use the Task tool to spawn these agents simultaneously (in a single message with multiple Task calls):
-- `codebase-analyser` - Deep code analysis, complexity, architecture
-- `readme-researcher` - Competitive research, patterns, trends
+Spawn `codebase-analyser` agent to understand:
+- Project type (CLI, library, framework, plugin, app, API)
+- Tech stack (languages, frameworks)
+- Ecosystem (npm, PyPI, Cargo, etc.)
+- Value proposition
+- Target audience
 
-Wait for both to return their findings.
+Wait for analysis to complete. You need this context for research.
 
-**Then synthesise:**
-If Gemini is available, use `gemini.brainstorming(thinking_level="high")` to combine findings.
+**Step 2: Research with context**
 
-**Then ask style questions one at a time:**
+NOW spawn `readme-researcher` agent, passing it:
+- Project type from analysis
+- Tech stack from analysis
+- Ecosystem from analysis
+
+The researcher uses this to search for "best [project-type] READMEs in [ecosystem]".
+
+**Step 3: Synthesise findings**
+
+If Gemini is available, use `gemini.brainstorming(thinking_level="high")` to combine codebase analysis with research findings.
+
+**Step 4: Ask style questions one at a time:**
 
 Ask about spelling (one question):
 1. British (colour, optimise) - default
