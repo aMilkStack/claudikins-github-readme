@@ -140,36 +140,56 @@ Using Phase 1 context (e.g., "TypeScript CLI tool using Commander.js for fuzzy f
 
 ## Phase 2.5: THE BIG BRAINSTORM (Claude vs Gemini)
 
-**Creative tension, not agreement.** You and Gemini have different perspectives. Use that.
+**A brainstorm is a CONVERSATION, not a query.** Multiple turns, building on ideas.
 
 **Your personas (both TECHNICAL, different angles):**
-- **Claude (you)**: The enthusiast. Sees the elegant engineering. "This architecture choice is actually clever because..."
-- **Gemini**: The pragmatist. Sees what devs actually need. "What matters to someone evaluating this is..."
+- **Claude (you)**: The enthusiast. Sees the elegant engineering.
+- **Gemini**: The pragmatist. Sees what devs actually need.
 
 Both are SENIOR DEVS. Both are TECHNICAL. Just different priorities.
 
+### How to Actually Brainstorm
+
+**NOT THIS (single query):**
+```
+Claude: "Give me ideas" → Gemini: "Wall of text" → Done
+```
+
+**DO THIS (actual conversation):**
+
 ```typescript
+// Turn 1: Open with your take, ask for theirs
 await gemini["gemini-brainstorm"]({
-  prompt: `I need your pragmatic senior dev perspective. I've found what I think is technically interesting about this ${projectType}.
-
-  THE PROJECT: ${codebaseFindings}
-  TECHNICAL OPPORTUNITIES: ${roadmapFindings}
-  WHAT COMPETITORS DO: ${researchFindings}
-
-  MY TECHNICAL TAKE (what I find elegant/clever):
-  ${claudesTechnicalAppreciation}
-
-  Now give me YOUR take as a pragmatic dev evaluating this:
-  - Am I appreciating the right things? What would YOU highlight?
-  - What would a senior dev actually want to know before using this?
-  - What's the "I wish other tools did this" angle?
-  - Where's the real technical value vs nice-to-have?
-
-  Give me the perspective of someone who's seen a lot of READMEs and knows what actually matters.`,
-  claudeThoughts: "${yourActualTechnicalTake}",
+  prompt: `I'm seeing [technical thing] as the core value here. What's your read?`,
+  claudeThoughts: "The context persistence architecture is elegant...",
   thinkingLevel: "high"
 });
+
+// Turn 2: Build on their response
+await gemini["gemini-brainstorm"]({
+  prompt: `Interesting point about [their idea]. What if we combined that with [your addition]?`,
+  claudeThoughts: "They mentioned semantic triggers - could tie into...",
+  thinkingLevel: "high"
+});
+
+// Turn 3: Drill into specifics
+await gemini["gemini-brainstorm"]({
+  prompt: `For the README angle - how would we frame [emerging idea] for skeptical devs?`,
+  claudeThoughts: "The 'wish other tools did this' framing could work...",
+  thinkingLevel: "high"
+});
+
+// Continue until you've got something solid
 ```
+
+**Minimum 3 turns.** If you stopped after one prompt, that's a query, not a brainstorm.
+
+### What Emerges
+
+After the conversation, you should have:
+- **Claude's angle**: What YOU find technically interesting
+- **Gemini's angle**: What THEY think matters to devs
+- **The synthesis**: Ideas that emerged from the back-and-forth
 
 **Then present THREE options to the user:**
 
@@ -180,11 +200,11 @@ await gemini["gemini-brainstorm"]({
 > "[What a senior dev evaluating this would actually care about]"
 >
 > **Option 3 - The synthesis:**
-> "[Technical depth that also addresses practical concerns]"
+> "[Ideas that emerged from our conversation - neither of us had this alone]"
 >
 > "Which framing feels right? Or mix elements?"
 
-**Both options should sound like senior devs talking**, not marketers. The difference is enthusiasm vs pragmatism, not hype vs honesty.
+**The synthesis should contain ideas NEITHER had alone.** That's how you know it was a real brainstorm.
 
 ## Phase 3: Style
 
