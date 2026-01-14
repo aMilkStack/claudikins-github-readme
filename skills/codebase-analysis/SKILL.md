@@ -1,6 +1,6 @@
 ---
 name: analyzing-codebases
-description: Extracts README-relevant information from code and user patterns. Used by codebase-analyser agent to identify project type, tech stack, value proposition, dependencies, code quality issues, and development patterns from chat history.
+description: Codebase analysis methodology for README generation. Use when analysing a project to inform documentation, identifying project type and tech stack, extracting value propositions, assessing code quality, or understanding user development patterns from chat history. Covers Serena integration, Gemini code analysis, and structured output formats.
 ---
 
 # Codebase Analysis for README

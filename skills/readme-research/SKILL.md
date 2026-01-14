@@ -1,6 +1,6 @@
 ---
 name: researching-readmes
-description: Finds and evaluates exemplar READMEs from similar projects. Used by readme-researcher agent to conduct competitive research, score README quality, and extract patterns worth borrowing.
+description: Competitive research methodology for README documentation. Use when conducting README research, finding exemplar documentation, scoring README quality, extracting patterns from top repositories, or analysing what makes documentation effective. Covers search strategies, scoring rubrics, pattern extraction, and Gemini integration for parallel research.
 ---
 
 # README Research Methodology
