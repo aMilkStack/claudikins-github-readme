@@ -28,17 +28,17 @@ Patterns to avoid and their fixes.
 **Problem:** Code examples without expected results
 **Fix:** Always show what user should see
 **Format:**
-```
+````
 Input:
-\`\`\`bash
+```bash
 my-command --flag
-\`\`\`
+```
 
 Output:
-\`\`\`
-Expected output here
-\`\`\`
 ```
+Expected output here
+```
+````
 
 ## Formatting Anti-Patterns
 

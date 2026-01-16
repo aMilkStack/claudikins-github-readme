@@ -1,206 +1,67 @@
 ---
 name: think-tank
-description: "Enter the think-tank. Research exemplar READMEs from similar projects. Patterns that work, anti-patterns to avoid."
+description: "Research exemplar READMEs. Identifies patterns to borrow and 'Slop' to avoid using the Badge Ecosystem and Scoring Rubric."
 ---
 
 # The Think-Tank
 
-Time to enter the think-tank...
+**Goal:** Extract high-converting patterns from similar tools and identify "Anti-Patterns" to avoid.
 
-Systematic approach to researching high-quality READMEs for pattern extraction.
+## Step 1: Load Research Standards
+Read the governance files:
+1.  `references/scoring-rubric.md` (How to grade quality).
+2.  `references/badge-ecosystem.md` (Which badges signal what).
+3.  `references/gemini-deep-research.md` (How to execute Gemini deep research).
 
-## Research Process
+## Step 2: The Research Process
+Find 3-5 similar repositories (matching stack, category, or problem space). For each repo, perform this audit:
 
-### Phase 1: Define Search Criteria
+### A. The Quality Score
+Calculate the score using `references/scoring-rubric.md`.
 
-Based on project context from codebase analysis, match on:
+**CRITICAL: The "Slop" Penalty**
+*   Scan the text for the "Delve Index" (Delve, Seamless, Tapestry, Unleash, Landscape).
+*   **Action:** If *any* of these words appear in the Description/Intro, **DEDUCT 2 POINTS** from the Total Score.
+*   *Rationale:* We do not want to mimic popular-but-lazy documentation.
 
-| Criterion | How to Match |
-|-----------|--------------|
-| Category | Same project type (CLI, library, framework, API, etc.) |
-| Tech Stack | Same or similar languages/frameworks |
-| Ecosystem | Same package manager (npm, PyPI, Cargo) |
-| Complexity | Similar scope (simple util vs enterprise tool) |
-| Maturity | Established projects with proven documentation |
+### B. Pattern Extraction
+1.  **Visuals:** What types of visuals do they use? (VHS, Mermaid, Static)?
+2.  **Structure:** Do they put "Usage" before "Install"? Do they use a "Quick Start"?
+3.  **Badges:** Identify their badges against `references/badge-ecosystem.md`.
+    *   *Note:* Are they using "Vanity Badges" (Anti-pattern) or "Trust Signals"?
 
-### Phase 2: Search Execution
-
-**Search queries:**
-```
-"best [project-type] [tech-stack] github"
-"awesome [technology] list"
-"[similar-tool] alternatives github"
-```
-
-**Find 10-15 candidates**, then narrow to top 5-7 based on stars and initial quality scan.
-
-## Scoring Rubric
-
-Rate each README 1-10 on these dimensions:
-
-| Dimension | Weight | What to Look For |
-|-----------|--------|------------------|
-| Value Proposition | 20% | Problem and solution crystal clear in first paragraph |
-| Time to Joy (TTJ) | 20% | Commands to first working result (target: 2-3) |
-| Visual Quality | 15% | GIFs, diagrams, code blocks, dark mode support |
-| Structure | 15% | Logical flow, scannable, TOC if >200 lines |
-| SEO Signals | 10% | Keywords in title, semantic headers, topics tagged |
-| Badge Quality | 10% | Informative badges, 5-7 max, consistent style |
-| Maintenance Signals | 10% | Recent commits, active issues, working links |
-
-### Quantitative Targets
-
-| Metric | Good | Red Flag |
-|--------|------|----------|
-| Flesch-Kincaid Grade | 8-10 | >12 (too complex) |
-| TTJ (commands to result) | 2-3 | >5 |
-| Visual Density | 1 per 300 words | >600 words without visual |
-| Badge Count | 5-7 | >10 or 0 |
-
-### Score Interpretation
-
-| Score | Assessment |
-|-------|------------|
-| 9-10 | Exemplary - study closely |
-| 7-8 | High quality - good patterns |
-| 5-6 | Average - selective borrowing |
-| 3-4 | Below average - learn what not to do |
-
-## Pattern Extraction
-
-For each high-scoring exemplar, extract:
-
-**Hero Section:**
-- Banner/logo style
-- Tagline approach
-- Badge selection and arrangement
-
-**Structure:**
-- Section order and naming conventions
-- Use of collapsible sections
-- Table of Contents style
-
-**Visuals:**
-- GIF usage (terminal recordings, UI demos)
-- Diagram types (architecture, flow)
-- Screenshot placement
-
-**Writing Style:**
-- Tone (minimal, conversational, opinionated, reference)
-- Code example density
-- Explanation depth
-
-## Badge Recommendations
-
-### Badge Categories by Signal
-
-| Category | Signal | When to Use |
-|----------|--------|-------------|
-| Build Status | "Code compiles and tests pass" | Always |
-| Code Coverage | "Maintainers care about testing" | If coverage >60% |
-| Version | "This is a releasable product" | If published to registry |
-| Social Proof | "Crowd has vetted this" | Only if numbers impress (5000+ stars) |
-| License | "Legal to use in my project" | Always |
-| Activity | "Project is alive" | Only if actively maintained |
-
-### Badge Styles
-
-Pick ONE style across all badges:
-- `flat` - Modern, clean (most projects)
-- `flat-square` - Sharp edges (technical projects)
-- `for-the-badge` - Large, bold (hero sections only)
-
-### Recommended Badge Sets
-
-**Minimal (3-4):** Build Status, Version, License
-
-**Standard (5-6):** Build Status, Coverage, Version, Downloads, License
-
-**Comprehensive (7 max):** Build Status, Coverage, Quality, Version, Downloads, License, Last Commit
-
-### Badge Anti-Patterns to Avoid
-- **Overload:** 15+ badges creating visual chaos
-- **Inconsistent styling:** Mix of flat, plastic, for-the-badge
-- **Vanity badges:** "Made with JavaScript" adds no value
-- **Stale badges:** Coverage showing 0% from broken CI
-- **Meaningless numbers:** Badging 3 stars, 12 downloads
-
-## Section Recommendations
-
-Base recommendations on what top exemplars use:
-
-### Common Section Patterns
-
-| Section | When to Include |
-|---------|-----------------|
-| Quick Start | Always - first thing after hero |
-| Installation | Always - multiple methods if applicable |
-| Usage/Examples | Always - show, don't just tell |
-| API Reference | Libraries and frameworks |
-| Configuration | If configurable |
-| Architecture | Complex projects with multiple components |
-| Contributing | Open source projects seeking contributions |
-| FAQ | If common questions exist |
-| Troubleshooting | If known gotchas exist |
+## Step 3: Synthesis & Recommendation
+Generate the "Research Results" report.
 
 ## Output Format
 
 ```markdown
-# README Research Results
+# Think-Tank Research Results
 
-## Summary
-- **Repos Analysed:** [X]
-- **High Quality (8-10):** [X]
-- **Key Patterns Identified:** [X]
+## Top Exemplar: [Repo Name]
+- **Score:** [X]/10 (Slop Penalty: [Yes/No])
+- **Why it wins:** "Uses a VHS tape to show the 'Time to Joy' in 3 seconds."
+- **Steal this:** "The specific way they format the Config table."
 
-## Top Exemplars
+## The Blueprint (Our Plan)
 
-### 1. [Repo Name]
-- **URL:** [GitHub link]
-- **Quality Score:** [X/10]
-- **Stars:** [X] | **Category:** [type]
+### 1. Visual Strategy
+- **Hero:** [e.g., Terminal GIF using VHS]
+- **Architecture:** [e.g., Mermaid Graph LR]
+- **Density Target:** One visual every [X] words.
 
-**What Works Well:**
-- [specific element 1]
-- [specific element 2]
+### 2. Badge Selection
+*(Selected from references/badge-ecosystem.md)*
+- [Badge 1]
+- [Badge 2]
+- [Badge 3]
 
-**Patterns to Borrow:**
-- [pattern]: [why effective]
-
-**Patterns to Avoid:**
-- [what doesn't work]
-
-**Relevance:** [how it applies to our project]
-
----
-
-[Repeat for top 5-7]
-
-## Recommended Patterns
-
-### Sections for This Project
-1. [Section]: Used by X/Y exemplars because [reason]
-2. [Section]: [reason]
-
-### Visual Recommendations
-- [Type of visual]: [where to use it]
-
-### Badge Recommendations
-- [Badge type]: [source, what it signals]
-
-### Anti-Patterns to Avoid
-- [Thing]: Common mistake seen in lower-rated READMEs
+### 3. Structural Flow
+1. Hero & Badges
+2. Description (The Hook)
+3. Quick Start (Time-to-Joy)
+4. ...
 ```
 
-## Additional Resources
-
-See `references/badge-ecosystem.md` for complete badge sources and examples.
-See `references/scoring-rubric.md` for detailed scoring criteria and checklists.
-
 ## Handoff
-
-After presenting research:
-
-- Ask: "Think-tank session complete. Happy with these patterns, or dig deeper? Ready to wield the pen?"
-- If refine -> more research
-- If continue -> Use `pen-wielding`
+**Ask:** "Research complete. We have the Badge list, Visual strategy, and Structural plan. Ready to wield the pen?"

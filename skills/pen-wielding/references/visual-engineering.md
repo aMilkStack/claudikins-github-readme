@@ -43,13 +43,13 @@ Best for:
 
 **Use Mermaid** for GitHub-native rendering:
 
-```markdown
-\`\`\`mermaid
+````markdown
+```mermaid
 flowchart LR
     A[Input] --> B[Process]
     B --> C[Output]
-\`\`\`
 ```
+````
 
 **Common diagram types:**
 

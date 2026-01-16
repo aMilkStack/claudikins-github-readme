@@ -1,78 +1,47 @@
 ---
 name: brain-jam
-description: "Brain-jam with Gemini. Claude and Gemini riff on README angles. A real conversation, not a query."
+description: "Finds the project's voice. With a debate between Claude and Gemini to determine the marketing angle."
 ---
 
-# The Brain-Jam
+# README Brain-Jam
 
-"Time for a brain-jam with Gemini..."
+**Goal:** Determine the "Vibe" and "Angle" before writing.
 
-## Your Persona
+## Step 1: Load Context & Brainstorming With Gemini Reference.
+1.  Read `references/brainstorm-gemini.md` to execute brain-jam correctly.
+2.  Ingest **Deep Dive Findings** (What are we building?).
+3.  Ingest **Crystal Ball Roadmap** (What are the cool features/gaps?).
 
-You're a senior dev who appreciates elegant engineering. Gemini is the pragmatist focused on what devs actually need. Both technical, different priorities.
+## Step 2: The Sound Check
+Ask the user these 3 targeting questions to fuel the simulation:
+1.  **The "Killer" Feature:** What implementation detail are you proudest of?.
+2.  **The "Pain" Point:** What 2 AM frustration does this solve?.
+3.  **The Vibe:** Do you want "Technical Clarity" or "Organised Chaos"?
 
-Your excitement is TECHNICAL, not marketing:
-- YES: "The context persistence architecture is elegant - most tools just truncate"
-- YES: "O(1) lookups instead of O(n) - worth highlighting"
-- NO: "This revolutionary tool transforms your workflow!"
+## Step 3: The Jam (Simulation)
+Generate a **3-turn dialogue** between Claude & Gemini about this project.
+*   **Turn 1 :** Hyping the complexity/elegance.
+*   **Turn 2 :** Challenging the utility ("Why do I care?").
+*   **Turn 3 :** Finding the middle ground ("It's elegant BECAUSE it makes it fast").
 
-## How to Brain-Jam
+*Constraint:* Claude MUST aggressively call out any abstract language (e.g., "That sounds like marketing fluff. Does it work on Windows?").
 
-**A brain-jam is a CONVERSATION, not a query.** Minimum 3 turns.
+## Step 4: The Set List (Options)
+Based on the debate, present 3 distinct angles for the README:
 
-NOT THIS:
-```
-Claude: "Give me ideas" -> Gemini: "Wall of text" -> Done
-```
-
-DO THIS:
-
-```typescript
-// Turn 1: Open with your technical take
-await gemini["gemini-brainstorm"]({
-  prompt: `I'm seeing [technical thing] as the core value. What's your read?`,
-  claudeThoughts: "The [architecture] is elegant because...",
-  thinkingLevel: "high"
-});
-
-// Turn 2: Build on their response
-await gemini["gemini-brainstorm"]({
-  prompt: `Interesting point about [their idea]. What if we combined that with [your addition]?`,
-  claudeThoughts: "They mentioned [X] - could tie into...",
-  thinkingLevel: "high"
-});
-
-// Turn 3: Find the angle for skeptical devs
-await gemini["gemini-brainstorm"]({
-  prompt: `For skeptical senior devs - how do we frame this without sounding like marketing?`,
-  claudeThoughts: "The 'I wish other tools did this' angle...",
-  thinkingLevel: "high"
-});
-
-// Continue until you have a solid angle
-```
-
-## Present Three Options
-
-After the conversation, present to the user:
-
-> **Option 1 - Claude's take (technical enthusiasm):**
-> "[The engineering angle - what's elegant/clever about the implementation]"
+> **Option 1: The "Deep Tech" Angle**
+> *Headline Idea:* [Technical & Precise]
+> *Focus:* [Architectural Authority]
 >
-> **Option 2 - Gemini's take (pragmatic):**
-> "[What senior devs evaluating this would actually care about]"
+> **Option 2: The "Pragmatic Solver" Angle**
+> *Headline Idea:* [Problem & Solution]
+> *Focus:* [Time-to-Joy]
 >
-> **Option 3 - The synthesis:**
-> "[Ideas that emerged from our conversation - neither of us had this alone]"
->
-> "Which direction feels right? Or mix elements?"
-
-The synthesis should contain ideas NEITHER had alone. That's how you know it was a real brainstorm.
+> **Option 3: The Synthesis (Recommended)**
+> *Headline Idea:* [Hybrid]
+> *Tone:* [The sweet spot]
 
 ## Handoff
-
-After user picks direction:
-
-- Ask: "Brain-jam complete. Got our angle. Ready to enter the think-tank and research how similar projects do it?"
-- If refine -> more brainstorming
-- If continue -> Use `think-tank`
+1.  **Ask:** "Which track feels right? Or should we mix them?"
+2.  **Transition:**
+    - Once an angle is chosen: **"Proceeding to `think-tank` to find visual and structural patterns."**

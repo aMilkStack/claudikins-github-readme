@@ -1,125 +1,91 @@
 <p align="center">
-  <img src="assets/banner.png" alt="GitHub README for Perfectionists" width="100%">
+  <img src="assets/banner.png" alt="claudikins-grfp" width="100%">
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="MIT License"></a>
+  <a href="https://github.com/anthropics/claude-code"><img src="https://img.shields.io/badge/Claude_Code-Plugin-5A67D8?style=flat-square" alt="Claude Code Plugin"></a>
+  <img src="https://img.shields.io/badge/Delve_Index-0%25-brightgreen?style=flat-square" alt="0% Delve Index">
 </p>
 
 # claudikins-grfp
 
-A Claude Code plugin that writes high-quality README files through dual-AI collaborative analysis.
+ESLint for prose. A Claude Code plugin that treats "delve" as a syntax error.
 
-## What It Does
+AI-generated documentation has a smell. You know it when you read it: *"This tool delves into the landscape of seamless integration..."* - zero information, pure filler. GRFP bans those words and enforces sentence patterns that require specifics.
 
-**The Problem:** Writing good README documentation is tedious. You know your code, but explaining it clearly to others takes time you'd rather spend coding.
+**Before:**
+> ~~This library provides a seamless way to delve into documentation generation, unleashing the full potential of your README workflow.~~
 
-**The Solution:** This plugin analyses your codebase and researches what works in similar projects, then co-authors a README with you section by section.
+**After:**
+> This plugin generates README files. It bans 11 filler words and enforces sentence patterns that require specifics.
 
-**Key Features:**
-- **Parallel AI analysis:** Claude + Gemini analyse your code simultaneously, then compare notes
-- **Competitive research:** Finds and scores exemplar READMEs from similar projects
-- **Co-authoring workflow:** Draft, review, iterate - you stay in control
-- **Update mode:** Smart diff-merge that preserves your manual edits
-- **Quality metrics:** Readability scores, time-to-joy tracking, visual density checks
-
-## Installation
-
-Add to your Claude Code plugins:
+## Quick Start
 
 ```bash
-# Via marketplace (when available)
-claude plugins install claudikins-github-readme
-
-# Or clone directly
-git clone https://github.com/[user]/claudikins-github-readme ~/.claude/plugins/claudikins-github-readme
+/plugin install claudikins-grfp
 ```
 
-## Requirements
+Then ask Claude to write a README. The plugin triggers and runs you through 5 phases.
 
-**Optional but recommended:**
-- [claudikins-tool-executor](https://github.com/[user]/claudikins-tool-executor) - Enables Gemini integration and Serena semantic search
+## How It Works
 
-Without tool-executor, the plugin works but uses only Claude's native tools.
+```mermaid
+flowchart LR
+    A["/deep-dive"] --> B["/crystal-ball"]
+    B --> C["/brain-jam"]
+    C --> D["/think-tank"]
+    D --> E["/pen-wielding"]
 
-## Usage
-
-The plugin triggers automatically when you mention README-related tasks:
-
+    A -.- A1["Facts: Stack, structure, friction"]
+    B -.- B1["Future: Roadmap, tech debt"]
+    C -.- C1["Voice: Angle, tone"]
+    D -.- D1["Research: Patterns, badges"]
+    E -.- E1["Output: The README"]
 ```
-"Write a README for this project"
-"Update my README"
-"Improve the documentation"
-"Document this project"
-```
 
-### Workflow
+Each phase produces artifacts. `/deep-dive` extracts codebase facts. `/crystal-ball` identifies what's missing. `/brain-jam` runs a Claude + Gemini debate to find the voice. `/think-tank` researches exemplar READMEs. `/pen-wielding` writes the final output with Anti-Slop rules enforced.
 
-1. **Style selection:** Choose spelling (British/American) and tone (Minimal/Conversational/Opinionated/Reference)
-2. **Parallel analysis:** Two agents analyse your codebase and research similar projects simultaneously
-3. **Synthesis:** Findings are combined and brainstormed
-4. **Section planning:** You approve the structure before writing begins
-5. **Co-authoring:** Each section is drafted, reviewed, and refined with your feedback
-6. **Final review:** Quality checklist ensures nothing is missed
+## The Banned Words
 
-### Update Mode
+| Word | Replacement |
+|------|-------------|
+| Delve | Analyze, Check, Query |
+| Seamless | Compatible, Integrated |
+| Unleash | Run, Execute, Enable |
+| Robust | Fault-tolerant, Atomic |
+| Tapestry | System, Network, Stack |
+| Landscape | Delete the sentence |
+| Elevate | Improve (with a metric) |
+| Testament | Proof, Example |
+| Foster | Encourage, Allow |
+| Spearhead | Lead, Direct |
+| Game-changer | Solves [specific problem] |
 
-When a README.md already exists, the plugin:
-- Parses existing sections
-- Identifies what's stale (missing new features, outdated prereqs)
-- Updates only stale sections
-- Preserves your manual customisations
-- Presents changes as a diff for review
+If any of these appear in the output, the README fails its own rules.
 
-## Components
-
-### Skills
-
-| Skill | Purpose |
-|-------|---------|
-| `readme` | Main orchestrator - coordinates workflow, enforces style rules |
-| `codebase-analysis` | Methodology for extracting project info and user patterns |
-| `readme-research` | Methodology for finding and scoring exemplar READMEs |
-
-### Agents
-
-| Agent | Purpose | Tools |
-|-------|---------|-------|
-| `codebase-analyser` | Analyses project structure, tech stack, code quality | Read, Glob, Grep, Bash, WebFetch |
-| `readme-researcher` | Finds and evaluates similar project READMEs | Read, WebSearch, WebFetch |
-| `readme-writer` | Produces README content following templates | Read, Write, Glob, Grep |
-
-## Style Rules
-
-All generated content follows these rules:
-
-- Clear and concise
-- Active voice
-- Important information first
-- No M dash (—) - ever
-- Technical only, no marketing fluff
-- British spelling by default (American on request)
-
-## Quality Metrics
-
-The plugin tracks:
+## Quality Targets
 
 | Metric | Target |
 |--------|--------|
-| Flesch-Kincaid readability | Grade 8-10 |
-| Time to Joy (commands to first result) | ≤3 |
-| Visual density | 1 visual per 300 words |
-| Badge count | 5-7 max |
+| Flesch-Kincaid | Grade 8-10 |
+| Time to Joy | ≤3 commands |
+| Visual Density | 1 per 300 words |
+| Badge Count | 5-7 max |
 
-## Gemini Integration
+## When NOT to Use This
 
-When used with claudikins-tool-executor, the plugin leverages:
+- **You want full creative control.** GRFP enforces structure. It will fight you.
+- **Your project is trivial.** A 20-line script doesn't need a 5-phase pipeline.
+- **You need speed.** Each phase takes time. If you need a README in 30 seconds, use a template.
+- **You hate opinionated tools.** The opinions are baked in.
 
-- `gemini.analyze_code()` - Code quality, security, performance, bug analysis
-- `gemini.deep_research()` - Comprehensive README research
-- `gemini.brainstorming()` - Claude + Gemini collaborative idea refinement
+## Requirements
 
-Both AIs work in parallel, then synthesise their findings for better results than either alone.
+- Claude Code 1.0+
+- claudikins-tool-executor (recommended for Gemini integration)
 
-## Contributing
-
-Contributions welcome. This plugin follows the patterns established in [plugin-dev](https://github.com/anthropics/claude-code-plugins).
+Without tool-executor, brain-jam runs as a conversation with you instead of Claude + Gemini collaboration.
 
 ## License
 
@@ -127,4 +93,4 @@ Contributions welcome. This plugin follows the patterns established in [plugin-d
 
 ---
 
-*Built with the claudikins-github-readme plugin (yes, it documented itself).*
+*Delve Index: 0%*
