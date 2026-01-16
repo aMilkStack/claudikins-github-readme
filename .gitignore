@@ -1,5 +1,5 @@
 # Local Claude settings
-.claude/*.local.md
+.claude/
 
 # OS
 .DS_Store

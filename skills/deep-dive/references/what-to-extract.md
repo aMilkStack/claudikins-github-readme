@@ -1,17 +1,9 @@
----
-name: deep-dive
-description: "Start here. Uses the extraction guide to establish the 'Ground Truth' of the codebase (stack, structure, friction)."
----
-
-# Deep Dive Analysis
+# What to Extract from Codebase
 
 **Goal:** Establish the ground truth (what IS) before imagining the docs (what COULD be).
 
-## Step 1: Load Intelligence
-Read `references/extraction-guide.md`. This file contains the patterns for identifying project types, frameworks, and prerequisites.
-
-## Step 2: The Analysis Workflow
-Execute the following scans using the logic from the extraction guide:
+## The Analysis Workflow
+Execute the following scans:
 
 1.  **Identity Scan:**
     *   Determine Project Type (CLI, Library, Plugin?) using the *Entry Point Analysis* table.

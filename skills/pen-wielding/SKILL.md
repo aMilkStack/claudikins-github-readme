@@ -17,9 +17,9 @@ Read the outputs from the preparatory skills to establish the content:
 ## Step 2: Load Standards (Reference Files)
 Read the governance files to establish the form:
 1.  `references/style-guide.md` (The "Anti-Slop" rules and Banned Words).
-2.  `references/structures.md` (The section templates).
-3.  `references/visuals.md` (The density and diagram rules).
-4.  `references/antipatterns.md` (The final checklist).
+2.  `references/structural-templates.md` (The section templates).
+3.  `references/visual-engineering.md` (The density and diagram rules).
+4.  `references/anti-patterns.md` (The final checklist).
 
 ## Step 3: Execution (Writing the README)
 Write the complete README.md. Follow these constraints strictly:
@@ -42,7 +42,7 @@ Write the complete README.md. Follow these constraints strictly:
 *   **Badges:** Use the exact list derived from `think-tank`.
 
 ## Step 4: The Final Audit
-Before outputting, review the text against `references/antipatterns.md`.
+Before outputting, review the text against `references/anti-patterns.md`.
 *   [ ] Are paragraphs < 4 sentences?
 *   [ ] Are M-dashes (—) removed?
 *   [ ] Is the "Delve" index 0?

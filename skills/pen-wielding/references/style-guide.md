@@ -50,8 +50,31 @@ You MUST vary sentence structure using these three specific patterns.
 * *Bad:* "Works perfectly on all platforms."
 * *Good:* "Uses `epoll` on Linux; falls back to `kqueue` on macOS."
 
-## 3. Formatting Rules
+## 3. Spelling Consistency
+
+Pick ONE and stick to it throughout:
+
+| British | American |
+|---------|----------|
+| colour | color |
+| optimise | optimize |
+| analyse | analyze |
+| behaviour | behavior |
+| centre | center |
+| finalising | finalizing |
+
+## 4. Formatting Rules
 
 * **No M-Dashes (—):** Use hyphens (-) or colons (:).
 * **No Wall of Text:** Max 4 sentences per paragraph.
 * **Visual Density:** Every 300 words MUST have a code block, diagram, or image
+
+## 5. Quality Metrics
+
+| Metric | Target | Action if Violated |
+|--------|--------|-------------------|
+| Flesch-Kincaid | Grade 8-10 | Simplify sentences |
+| Time to Joy | ≤3 commands | Add Docker/Makefile |
+| Visual density | 1 per 300 words | Add code block/diagram |
+| Badge count | 5-7 | Curate to essentials |
+| Quick start visibility | < 30 seconds | Move above the fold |

@@ -9,6 +9,9 @@ description: Use when starting the README generation process to analyze codebase
 
 ## Workflow
 
+**Step 0: Load Intelligence**
+Read `references/what-to-extract.md` for detailed extraction patterns.
+
 1.  **Scout Structure**: List files/dirs to understand layout (`bin`, `src`, `dist`, `docs`).
 2.  **Identify Configuration**: Read dependency files (`package.json`, `Cargo.toml`, `pyproject.toml`).
 3.  **Context Extraction**: Scan chat history for user struggles/intent (if available).
