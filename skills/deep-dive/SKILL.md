@@ -1,6 +1,6 @@
 ---
 name: deep-dive
-description: "Take a deep dive into the codebase. Identify what this project IS - type, stack, deps, architecture. Facts only."
+description: "Extracts technical facts from codebase: project type, tech stack, dependencies, entry points, CI configuration. First step in README pipeline. Outputs Reality Report."
 ---
 
 # The Deep Dive

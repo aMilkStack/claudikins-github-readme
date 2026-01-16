@@ -1,6 +1,6 @@
 ---
 name: brain-jam
-description: "Brain-jam with Gemini to find the project's voice. A real conversation, not a query."
+description: "Conducts a multi-turn brainstorming session with Gemini to determine project tone, voice, and marketing angle. Use after deep-dive and crystal-ball, before think-tank."
 ---
 
 # The Brain-Jam

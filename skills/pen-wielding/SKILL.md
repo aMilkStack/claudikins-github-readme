@@ -1,6 +1,6 @@
 ---
 name: pen-wielding
-description: "The execution engine. Synthesizes Deep Dive, Crystal Ball, Brain-Jam, and Think-Tank insights with the Anti-Slop Style Guide to write the final README."
+description: "Writes the complete README by synthesising outputs from deep-dive, crystal-ball, brain-jam, and think-tank. Applies Anti-Slop style guide and structural templates. Final step in pipeline."
 ---
 
 # Pen-Wielding Protocol

@@ -1,6 +1,6 @@
 ---
 name: crystal-ball
-description: "Consult the crystal ball. What COULD this project become? Performance, tech debt, security, features."
+description: "Analyses codebase for future opportunities: performance improvements, technical debt, security hardening, and feature gaps. Outputs roadmap candidates table. Use after deep-dive."
 ---
 
 # The Crystal Ball

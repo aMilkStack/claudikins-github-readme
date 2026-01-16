@@ -447,6 +447,127 @@ npm test
 
 ---
 
+## 11. Monorepo Structure
+
+For projects using Turborepo, Nx, or similar:
+
+```markdown
+## Packages
+
+| Package | Description | Docs |
+|---------|-------------|------|
+| `@project/core` | Core functionality | [README](./packages/core) |
+| `@project/cli` | Command line interface | [README](./packages/cli) |
+| `@project/react` | React bindings | [README](./packages/react) |
+
+## Quick Start
+
+\`\`\`bash
+# Clone and install
+git clone https://github.com/user/project
+cd project
+pnpm install
+
+# Run all packages in dev mode
+pnpm dev
+
+# Run specific package
+pnpm --filter @project/cli dev
+\`\`\`
+```
+
+**Key differences from single-package:**
+- Root README is a "router" to sub-packages
+- Each package has its own README
+- Installation shows workspace commands (pnpm, yarn workspaces)
+
+---
+
+## 12. Migration Guide Pattern
+
+For major version upgrades:
+
+```markdown
+## Migrating from v2 to v3
+
+### Breaking Changes
+
+| v2 | v3 | Migration |
+|----|----|-----------|
+| `oldMethod()` | `newMethod()` | Find and replace |
+| `config.legacy` | Removed | Delete from config |
+
+### Step-by-Step
+
+1. Update dependency: `npm install project@3`
+2. Run codemod: `npx project-codemod v2-to-v3`
+3. Fix remaining TypeScript errors
+4. Test thoroughly
+
+### Before/After
+
+\`\`\`diff
+- import { oldThing } from 'project';
++ import { newThing } from 'project';
+
+- oldThing.doStuff();
++ newThing.doStuff({ modern: true });
+\`\`\`
+```
+
+---
+
+## 13. Comparison Table Pattern
+
+For positioning against alternatives:
+
+```markdown
+## Comparison
+
+| Feature | This Tool | Alternative A | Alternative B |
+|---------|-----------|---------------|---------------|
+| Speed | 50ms | 200ms | 150ms |
+| Bundle size | 2kb | 15kb | 8kb |
+| TypeScript | Native | Partial | Yes |
+| Zero deps | Yes | No | No |
+
+_Benchmarks run on [environment]. See `benchmarks/` for methodology._
+```
+
+**Rules:**
+- Include methodology or link to benchmarks
+- Be honest about weaknesses
+- Use measurable metrics, not subjective claims
+
+---
+
+## 14. Accessibility Notes
+
+### Badge Colours
+
+Avoid low-contrast combinations:
+- Light grey text on yellow background
+- White text on light green
+
+Use shields.io style parameter for consistency:
+```
+?style=flat-square&labelColor=000000
+```
+
+### Image Alt Text
+
+Every image must have descriptive alt text:
+
+```markdown
+<!-- Bad -->
+![](screenshot.png)
+
+<!-- Good -->
+![Terminal showing installation and first command output](screenshot.png)
+```
+
+---
+
 ## Quick Reference
 
 | Position | CLI Tool | Library | Framework |

@@ -21,6 +21,10 @@ You are strictly FORBIDDEN from using these tokens. If the LLM predicts them, st
 | **Spearhead** | "1990s Management." | Lead, Direct, First to implement |
 | **Game-changer**| "Hyperbole." | Solves [specific problem] |
 | **Robust** | "Vague filler." | Fault-tolerant, Atomic, Idempotent |
+| **Navigating** | "Corporate waffle." | Using, Working with, Handling |
+| **Leverage** | "MBA speak." | Use, Apply, Employ |
+| **Cutting-edge** | "Meaningless hyperbole." | Modern, Current, 2025-compatible |
+| **Empower** | "Marketing fluff." | Allow, Enable, Let |
 
 ## 2. Sentence Structure Patterns
 

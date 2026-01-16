@@ -1,6 +1,6 @@
 ---
 name: think-tank
-description: "Enter the think-tank. Research exemplar READMEs from similar projects. Patterns that work, anti-patterns to avoid."
+description: "Researches exemplar READMEs from similar high-star repositories. Scores them against rubric, extracts patterns to borrow, identifies anti-patterns to avoid. Use after brain-jam, before pen-wielding."
 ---
 
 # The Think-Tank
