@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/Delve_Index-0%25-brightgreen?style=flat-square" alt="0% Delve Index">
 </p>
 
-# claudikins-grfp
+# Github Readme for Perfectionists
 
 ESLint for prose. A Claude Code plugin that treats "delve" as a syntax error.
 
