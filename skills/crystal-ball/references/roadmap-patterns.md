@@ -19,6 +19,10 @@ A public roadmap serves multiple functions:
 
 Choose based on project size and governance style.
 
+**Key insight:** Format choice signals target audience.
+- Static, commitment-based → Enterprise adopters (need predictability)
+- Dynamic, discussion-based → Developers (want velocity and input)
+
 ### Integrated File
 
 A `ROADMAP.md` version-controlled alongside source code.
@@ -88,6 +92,23 @@ Bundle breaking changes into multi-year milestones (v1, v2, 2024 Edition).
 Keep versions in beta/next state while being production-ready.
 
 **Effect:** Gathers real-world feedback before API freeze. Requires high trust.
+
+### Dual-Track Versioning
+
+Separate versioning for breaking changes vs incremental releases.
+
+- **Editions/Years** for breaking changes (2024 Edition, v2.0)
+- **SemVer** for incremental releases (1.84.0, 1.85.0)
+
+**Effect:** Features ship when ready, breaking changes batch into predictable epochs. Prevents roadmap stagnation.
+
+### Marketing Majors
+
+Major version bump signals philosophy shift, not just technical breakage.
+
+**Example:** "v2.0" announces "we changed direction" even if migration is minimal.
+
+**Use when:** Pivoting strategy, entering new market, or shedding legacy reputation.
 
 ---
 
@@ -159,6 +180,40 @@ Link to external policies when deprecating:
 ```
 
 **Effect:** Externalises justification. "The ecosystem moved, not us."
+
+---
+
+## The Negative Roadmap
+
+Explicitly state what the project will NOT do. This builds trust and prevents scope creep.
+
+### Boundaries Document
+
+```markdown
+## Scope & Boundaries
+
+### What This Project IS
+- A lightweight CLI for X
+- Optimised for single-user workflows
+
+### What This Project is NOT
+- A GUI application (use [Alternative] instead)
+- A replacement for [Enterprise Tool]
+- Suitable for >10GB datasets
+```
+
+### "Won't Fix" Transparency
+
+```markdown
+## Known Limitations (Won't Fix)
+
+| Limitation | Reason | Alternative |
+|------------|--------|-------------|
+| No Windows GUI | Out of scope | Use WSL |
+| Single-threaded | By design for simplicity | Use [Other Tool] for parallelism |
+```
+
+**Effect:** Empowers maintainers to reject off-vision requests without personal conflict. Users self-select out if project doesn't fit their needs.
 
 ---
 
@@ -235,9 +290,41 @@ Every feature request gets added to roadmap.
 
 **Fix:** README states philosophy. Reject requests that violate core principles.
 
+### Help Wanted Ghosting
+
+Tagging issues as `help wanted` but never reviewing submitted PRs.
+
+**Effect:** Destroys contributor morale. Turns roadmap into a lie.
+
+**Fix:** Only tag `help wanted` if someone is assigned to review. If you ask for help, be ready to receive it.
+
+### Zero-Ver Dissonance
+
+Operating in v0.x forever while being used in production.
+
+**Effect:** Creates expectation mismatch. Users expect stability from tools they depend on, but v0.x technically promises none.
+
+**Fix:** Either graduate to v1.0 with stability guarantees, or explicitly document "v0.x but production-ready" status.
+
 ---
 
 ## Version Signalling
+
+### Granular Stability Flags
+
+Instead of monolithic "unstable" flag, offer per-feature opt-in.
+
+```bash
+# Bad: all-or-nothing
+--unstable
+
+# Good: granular opt-in
+--unstable-kv
+--unstable-cron
+--unstable-ffi
+```
+
+**Effect:** Transforms "Is the project stable?" into "Is feature X stable?" - much easier question for adoption decisions. Enterprise users can opt-in to specific experimental features without risking core stability.
 
 ### Maturity Indicators
 
@@ -302,9 +389,10 @@ Unable to maintain actively. Interested? Open an issue.
 - [ ] Items needing feedback clearly marked
 - [ ] Maintenance/debt work included
 - [ ] Versioning and stability policy stated
-- [ ] Contribution opportunities labelled
+- [ ] Contribution opportunities labelled (with reviewers assigned)
 - [ ] Format chosen that prevents staleness
-- [ ] Philosophy stated (what project is NOT)
+- [ ] Boundaries stated (what project is NOT)
+- [ ] Known limitations documented honestly
 
 ---
 
